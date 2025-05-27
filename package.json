@@ -1,0 +1,10 @@
+{
+  "name": "kochbuch-app",
+  "version": "1.0.0",
+  "scripts": {
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "start": "concurrently \"npm run backend\" \"npm run frontend\""
+  }
+}
+

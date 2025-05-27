@@ -3,7 +3,7 @@
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
 
-dotenv.config(); // Lädt Umgebungsvariablen
+dotenv.config(); // Lädt Umgebungsvariablen aus .env Datei
 
 // Erstellt eine Verbindung (ohne Pool – für den Anfang okay)
 const db = mysql.createConnection({
