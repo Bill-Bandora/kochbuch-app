@@ -9,28 +9,15 @@ dotenv.config(); // Lädt Umgebungsvariablen aus .env
 
 const app = express();
 
-app.use(cors()); // Erlaubt Anfragen von anderen Domains (z. B. frontend)
+app.use(cors({
+  origin: 'http://localhost:5173', // Erlaubt Anfragen von dieser Domain (Frontend)
+  credentials: true // Erlaubt Cookies und Authentifizierungsheader
+})); // Erlaubt Anfragen von anderen Domains (z. B. frontend)
 app.use(express.json()); // Ermöglicht JSON-Daten im Body von Requests
 
 // Test-Route
 app.get('/', (req, res) => { 
   res.send('Kochbuch API läuft!'); // Einfacher Test, um zu prüfen, ob die API läuft
-});
-
-module.exports = app; // Exportiert die App für server.js
-
-
-
-
-
-// Middleware
-app.use(cors()); // CORS aktivieren, um Anfragen von anderen Domains zu erlauben
-app.use(express.json()); // JSON-Daten im Body von Requests erlauben
-app.use('/api/auth', authRoutes); // Authentifizierungsrouten
-
-// Testroute
-app.get('/', (req, res) => {
-  res.send('Kochbuch API läuft!');
 });
 
 // Auth-API
